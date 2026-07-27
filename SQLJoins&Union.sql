@@ -1,0 +1,34 @@
+/* 
+====================LIKE=========================
+*/
+SELECT * FROM customers WHERE EMAIL LIKE '%@%';
+
+SELECT * FROM ORDERS O 
+INNER JOIN ORDER_ITEMS I ON O.ORDER_ID=I.ORDER_ID
+INNER JOIN customers C ON C.customer_id = O.CUSTOMER_ID;
+
+SELECT * FROM ORDERS O 
+RIGHT JOIN customers C ON O.customer_id = C.CUSTOMER_ID where O.customer_id is null;
+
+SELECT * FROM Customers c
+LEFT JOIN ORDERS O ON C.Customer_ID = O.Customer_id;
+
+SELECT * FROM ORDERS O 
+RIGHT JOIN customers C ON O.customer_id = C.CUSTOMER_ID where O.customer_id is null;
+ /*
+SELECT * FROM ORDER_ITEMS I
+FULL JOIN PRODUCTS P ON I.PRODUCT_ID = P.PRODUCT_ID;*/
+
+SELECT * FROM customers CROSS JOIN employees;
+
+WITH CTE AS (
+SELECT CUSTOMER_NAME FROM customers
+UNION
+SELECT EMPLOYEE_NAME FROM EMPLOYEES)
+SELECT COUNT(*) FROM CTE;
+
+WITH CTE AS (
+SELECT CUSTOMER_NAME FROM customers
+UNION ALL
+SELECT EMPLOYEE_NAME FROM EMPLOYEES)
+SELECT COUNT(*) FROM CTE
