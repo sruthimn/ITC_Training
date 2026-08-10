@@ -1,0 +1,1 @@
+total india,us salary spend is ,(260000, 40000)
